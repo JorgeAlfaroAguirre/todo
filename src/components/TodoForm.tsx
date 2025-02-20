@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 import Input from "./Input";
+import Button from "./Button";
 
 // type Props = {};
 
@@ -14,7 +15,7 @@ const TodoForm = () => {
           {" "}
           Fecha{" "}
         </Input>
-        <button>Enviar</button>
+        <Button variant="warning">Enviar</Button>
       </form>
     </FormProvider>
   );
