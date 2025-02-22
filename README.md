@@ -10,6 +10,8 @@
 
 npm run build
 npm run preview
+vercel
+vercel --prod
 
 ## Componentes
 
