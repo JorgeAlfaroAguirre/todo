@@ -8,7 +8,8 @@ type Props = {
 };
 
 const Input = ({ name, children, type = "text" }: Props) => {
-  const { register } = useFormContext();
+  const { register, formState, getFieldState } = useFormContext();
+  const { error } = getFieldState(name, formState);
   return (
     <>
       <div className="mb-3">
@@ -22,6 +23,7 @@ const Input = ({ name, children, type = "text" }: Props) => {
         className="form-control"
         id={name}
       ></input>
+      {error?.message && <div className="text-danger">{error?.message}</div>}
     </>
   );
 };
