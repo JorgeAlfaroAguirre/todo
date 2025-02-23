@@ -1,10 +1,6 @@
 import { z } from "zod";
 
-export const personOptions = [
-  "Manu Perrito",
-  "Perrito Pablo",
-  "Tomas Perro",
-] as const;
+export const personOptions = ["Manu Perrito", "Perrito Pablo", "Tomas Perro"];
 
 export const taskSchema = z.object({
   taskName: z
@@ -15,20 +11,15 @@ export const taskSchema = z.object({
     .string()
     .min(1, { message: "El detalle no puede estar vacio" })
     .min(5, { message: "Longitud minima 5 caracteres" }),
-  person: z.enum(personOptions, {
-    errorMap: () => ({
-      message: "Selecciona una persona de la lista",
-    }),
+  person: z.string().refine((option) => personOptions.includes(option), {
+    message: "Selecciona una persona de la lista válida",
   }),
   date: z
     .string()
     .refine((val) => !isNaN(Date.parse(val)), {
       message: "Debe ser una fecha válida",
     })
-    .transform((val) => {
-      const date = new Date(val);
-      return date.toLocaleDateString("es-ES");
-    }),
+    .transform((val) => new Date(val)),
 });
 
-export type Task = z.infer<typeof taskSchema>;
+export type Task = z.infer<typeof taskSchema> & { id?: string };
