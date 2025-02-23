@@ -13,7 +13,7 @@ type Props = {
 
 const TodoForm = ({ onSubmit, asigneeOptions }: Props) => {
   const methods = useForm<Task>({
-    resolver: zodResolver(taskSchema),
+    resolver: zodResolver(taskSchema(asigneeOptions)),
   });
 
   const onSubmitFixedDate = (data: Task) => {
@@ -35,7 +35,7 @@ const TodoForm = ({ onSubmit, asigneeOptions }: Props) => {
           options={asigneeOptions}
           defaultMessage={"--Selecciona A la persona--"}
           label={"Tipo"}
-          name={"type"}
+          name={"asignee"}
         ></Select>
         <Input name="date" type="date">
           Fecha

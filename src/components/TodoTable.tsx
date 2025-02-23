@@ -1,7 +1,7 @@
 // type Props = {};
 
-const TodoList = () => {
+const TodoTable = () => {
   return <div>TodoList</div>;
 };
 
-export default TodoList;
+export default TodoTable;

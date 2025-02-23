@@ -1,5 +1,5 @@
 import TodoForm from "./TodoForm";
-import TodoList from "./TodoTable";
+import TodoTable from "./TodoTable";
 import { useState } from "react";
 import { Task } from "../schemas/Task";
 import AsigneeForm from "./AsigneeForm";
@@ -41,7 +41,7 @@ const Layout = () => {
       </div>
       <div className="row">
         <div className="col">
-          <TodoList />
+          <TodoTable />
         </div>
       </div>
     </div>
