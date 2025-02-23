@@ -41,7 +41,7 @@ const Layout = () => {
       </div>
       <div className="row">
         <div className="col">
-          <TodoTable />
+          <TodoTable tasks={tasks} />
         </div>
       </div>
     </div>

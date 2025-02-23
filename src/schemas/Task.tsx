@@ -11,11 +11,10 @@ export const taskSchema = (asigneeOptions: Asignee[]) =>
       .string()
       .min(1, { message: "El detalle no puede estar vacío" })
       .min(5, { message: "Longitud mínima 5 caracteres" }),
-    // asignee: z
-    //   .string()
-    //   .refine((option) => asigneeOptions.some((a) => a.name === option), {
-    //     message: "Selecciona una persona de la lista válida",
-    //   }),
+    asignee: z.string().min(1, { message: "La tarea no puede estar vacía" }),
+    // .refine((option) => asigneeOptions.some((a) => a.name === option), {
+    //   message: "Selecciona una persona de la lista válida",
+    // }),
     date: z
       .string()
       .refine((val) => !isNaN(Date.parse(val)), {

@@ -33,8 +33,8 @@ const TodoForm = ({ onSubmit, asigneeOptions }: Props) => {
         <Input name="taskDetail"> Detalle </Input>
         <Select
           options={asigneeOptions}
-          defaultMessage={"--Selecciona A la persona--"}
-          label={"Tipo"}
+          defaultMessage={"--Asigna la tarea a una persona--"}
+          label={"Asignado a"}
           name={"asignee"}
         ></Select>
         <Input name="date" type="date">
